@@ -1,7 +1,6 @@
 package org.example.service;
 
 import org.example.exception.CurrencyConversionException;
-import org.example.exception.ExternalServiceException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

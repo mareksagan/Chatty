@@ -2,8 +2,6 @@ package org.example.service;
 
 import org.example.exception.CurrencyConversionException;
 import org.example.exception.ExternalServiceException;
-import org.example.service.CurrencyConverterService;
-import org.example.service.JokeService;
 import org.springframework.stereotype.Service;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

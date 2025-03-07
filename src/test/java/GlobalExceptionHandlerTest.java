@@ -1,8 +1,6 @@
 package org.example.exception;
 
 import org.example.controller.ConversationController;
-import org.example.exception.CurrencyConversionException;
-import org.example.exception.ExternalServiceException;
 import org.example.service.ChatService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
