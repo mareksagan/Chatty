@@ -50,16 +50,18 @@ public class ChatService {
     }
 
     private String handleConversion(Matcher matcher) {
-        double amount = Double.parseDouble(matcher.group(1));
-        String from = matcher.group(2).toUpperCase();
-        String to = matcher.group(3).toUpperCase();
         try {
+            double amount = Double.parseDouble(matcher.group(1));
+            String from = matcher.group(2).toUpperCase();
+            String to = matcher.group(3).toUpperCase();
             double result = currencyConverterService.convert(amount, from, to);
             return String.format("%.2f %s is %.2f %s", amount, from, result, to);
-        } catch (CurrencyConversionException e) {
-            throw e;
-        } catch (ExternalServiceException e) {
-            throw e;
+        }
+        catch (CurrencyConversionException | ExternalServiceException e) {
+            return "Error: " + e.getMessage();
+        }
+        catch (NumberFormatException e) {
+            return "Error: Invalid amount format";
         }
     }
 }

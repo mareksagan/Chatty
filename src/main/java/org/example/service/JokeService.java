@@ -7,7 +7,7 @@ import java.util.Random;
 
 @Service
 public class JokeService {
-    private static final List<String> JOKES = List.of(
+    static final List<String> JOKES = List.of(
             "Why did the scarecrow win an award? Because he was outstanding in his field!",
             "What do you call fake spaghetti? An impasta!",
             "Why don't skeletons fight each other? They don't have the guts!",
