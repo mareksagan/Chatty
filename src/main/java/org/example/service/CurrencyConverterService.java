@@ -1,5 +1,6 @@
 package org.example.service;
 
+import org.example.dto.CurrencyRates;
 import org.example.dto.CurrencyRatesResponse;
 import org.example.exception.CurrencyConversionException;
 import org.example.exception.ExternalServiceException;
@@ -8,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDate;
-import java.util.Map;
 
 @Service
 public class CurrencyConverterService {
@@ -75,21 +75,5 @@ public class CurrencyConverterService {
         }
         double baseAmount = amount / fromRate;
         return baseAmount * toRate;
-    }
-
-    private static class CurrencyRates {
-        private final String base;
-        private final Map<String, Double> rates;
-        private final LocalDate date;
-
-        public CurrencyRates(String base, Map<String, Double> rates, LocalDate date) {
-            this.base = base;
-            this.rates = rates;
-            this.date = date;
-        }
-
-        public String getBase() { return base; }
-        public Map<String, Double> getRates() { return rates; }
-        public LocalDate getDate() { return date; }
     }
 }

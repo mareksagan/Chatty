@@ -71,10 +71,7 @@ class CurrencyConverterServiceTest {
     }
 
     private void mockApiResponse(String base, Map<String, Double> rates) {
-        CurrencyRatesResponse response = new CurrencyRatesResponse();
-        response.setBase(base);
-        response.setRates(rates);
-        response.setDate(LocalDate.now());
+        CurrencyRatesResponse response = new CurrencyRatesResponse(base, LocalDate.now(), rates);
 
         when(restTemplate.getForObject(anyString(), eq(CurrencyRatesResponse.class)))
                 .thenReturn(response);
