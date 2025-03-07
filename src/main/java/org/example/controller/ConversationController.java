@@ -11,7 +11,6 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
 public class ConversationController {
 
     private final ChatService chatService;
