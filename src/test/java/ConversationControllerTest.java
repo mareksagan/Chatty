@@ -24,7 +24,7 @@ class ConversationControllerTest {
 
     @Test
     void getQuestions_shouldReturnQuestionsList() throws Exception {
-        mockMvc.perform(get("/api/questions"))
+        mockMvc.perform(get("/questions"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.questions", hasSize(greaterThan(0))));
     }
@@ -33,7 +33,7 @@ class ConversationControllerTest {
     void handleConversation_shouldProcessMessage() throws Exception {
         when(chatService.processMessage("Hello")).thenReturn("Test response");
 
-        mockMvc.perform(post("/api/conversation")
+        mockMvc.perform(post("/conversation")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"message\": \"Hello\"}"))
                 .andExpect(status().isOk())

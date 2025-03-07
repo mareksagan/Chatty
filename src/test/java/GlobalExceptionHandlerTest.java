@@ -29,7 +29,7 @@ class GlobalExceptionHandlerTest {
         when(chatService.processMessage("Convert 100 ABC to XYZ"))
                 .thenThrow(new CurrencyConversionException("Invalid currency"));
 
-        mockMvc.perform(post("/api/conversation")
+        mockMvc.perform(post("/conversation")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"message\": \"Convert 100 ABC to XYZ\"}"))
                 .andExpect(status().isBadRequest())
@@ -41,7 +41,7 @@ class GlobalExceptionHandlerTest {
         when(chatService.processMessage("Convert 100 USD to EUR"))
                 .thenThrow(new ExternalServiceException("API unavailable"));
 
-        mockMvc.perform(post("/api/conversation")
+        mockMvc.perform(post("/conversation")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"message\": \"Convert 100 USD to EUR\"}"))
                 .andExpect(status().isServiceUnavailable())
